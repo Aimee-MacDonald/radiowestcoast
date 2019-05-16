@@ -1,2 +1,2 @@
 # radiowestcoast
-Radio West-coast Home Page
+Radio West Coast Home Page
