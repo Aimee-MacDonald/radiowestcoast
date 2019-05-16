@@ -1,0 +1,29 @@
+{
+  "name": "radiowestcoast",
+  "version": "1.0.0",
+  "description": "Radio West Coast Home Page",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aimee-MacDonald/radiowestcoast.git"
+  },
+  "keywords": [
+    "Radio",
+    "Westcoast",
+    "Community"
+  ],
+  "author": "Aimee MacDonald",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Aimee-MacDonald/radiowestcoast/issues"
+  },
+  "homepage": "https://github.com/Aimee-MacDonald/radiowestcoast#readme",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.16.4",
+    "pug": "^2.0.3"
+  }
+}
