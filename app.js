@@ -12,4 +12,8 @@ app.get("/", (req, res) => {
   res.status(200).render("index");
 });
 
+app.get("/admin", (req, res) => {
+  res.status(200).render("preview");
+});
+
 app.listen(process.env.PORT || 8080);
