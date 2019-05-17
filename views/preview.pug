@@ -9,36 +9,68 @@ html(lang="en")
     title Radio Westcoast
 
   body
-    h1 Radio Westcoast Preview
+    header
+      h1 Radio Westcoast Preview
+      ul
+        li
+          a(href="/") Home
+        li
+          a(href="team") The Team
+        li
+          a(href="contact") Contact Us
 
-    ul
-      li Home
-      li The Team
-      li Contact Us
+    a(href="http://www.radio-south-africa.co.za/player/radio-west-coast-445818", target="_blank") Listen
 
-    p Listen
+    div(class="container")
+      h2 Community News
 
-    h2 Community News
+      h2 Our Shows
+      ul(id="shows")
+        li
+          h3 Breakfast Show
+          p.
+            Our Breakfast Show aims to make your mornings a little easier with
+            fresh local and international news, great new tracks and some of
+            your best all-time favorites. Tune in and feel free to leave us comments!
+        li
+          h3 Windaf
+          p.
+            This is one of the most popular shows on our station. Tune in to
+            discover new hits and enjoy the classics of each genre. Whether
+            you're learning a new fun fact from one of our hosts or listening
+            to one of our very informative interviews! There’s always something
+            new to discover when you're on your tea-time dash on weekdays with
+            Weskus Radio 92.3.
+        li
+          h3 Let's Talk
+        li
+          h3 Afternoon Drive
 
-    h2 Our Shows
-    h3 Breakfast Show
-    h3 Windaf
-    h3 Let's Talk
-    h3 Afternoon Drive
+      h2 Broadcast Footprint
 
-    h2 Broadcast Footprint
+    footer
+      form(id="subscription" action="/subscribe" method="post")
+        h2 Subscribe to our Newsletter
+        label(for="name") Name:
+        input(placeholder="Name", id="name", required)
+        label(for="email") Email:
+        input(type="email", placeholder="Email", id="email", required)
+        button(type="submit") Subscribe
 
-    h2 Subscribe to our Newsletter
+      ul
+        li Facebook
+        li Twitter
+        li YouTube
+        li Instagram
 
-    ul
-      li Facebook
-      li Twitter
-      li Youtube
-      li Instagram
+      p Innovate - Collaborate - Educate
 
-    ul
-      li Innovate
-      li Collaborate
-      li Educate
-
-    h2 Sponsors
+      ul(id="sponsors")
+        li ICASA
+        li brc
+        li Sentech
+        li Net Dynamix
+        li DK Wireless
+        li Station Playlist
+        li SAMRO
+        li Aimee
