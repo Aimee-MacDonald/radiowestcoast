@@ -6,6 +6,7 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     link(rel="stylesheet", href="/styles/preview.css")
+    link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.8.2/css/all.css", integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay", crossorigin="anonymous")
     title Radio Westcoast
 
   body
@@ -13,13 +14,14 @@ html(lang="en")
       h1 Radio Westcoast Preview
       ul
         li
-          a(href="/") Home
+          a(href="team")
+            i(class="fas fa-users fa-3x")
         li
-          a(href="team") The Team
-        li
-          a(href="contact") Contact Us
+          a(href="contact")
+            i(class="fas fa-envelope fa-3x")
 
-    a(href="http://www.radio-south-africa.co.za/player/radio-west-coast-445818", target="_blank") Listen
+    a(href="http://www.radio-south-africa.co.za/player/radio-west-coast-445818", target="_blank")
+      i(class="fas fa-play-circle fa-10x")
 
     div(class="container")
       h2 Community News
@@ -58,10 +60,14 @@ html(lang="en")
         button(type="submit") Subscribe
 
       ul
-        li Facebook
-        li Twitter
-        li YouTube
-        li Instagram
+        li
+          i(class="fab fa-facebook-square fa-3x")
+        li
+          i(class="fab fa-twitter fa-3x")
+        li
+          i(class="fab fa-youtube fa-3x")
+        li
+          i(class="fab fa-instagram fa-3x")
 
       p Innovate - Collaborate - Educate
 
