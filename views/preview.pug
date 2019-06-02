@@ -14,6 +14,9 @@ html(lang="en")
       h1 Radio Westcoast Preview
       ul
         li
+          a(href="shows")
+            p Shows
+        li
           a(href="team")
             i(class="fas fa-users fa-2x")
         li
@@ -48,37 +51,8 @@ html(lang="en")
       div(class="community-image", id="ci20")
       div(class="community-image", id="ci21")
 
-    div(class="container")
-      h2 Our Shows
-      ul(id="shows")
-        li
-          h3 Breakfast Show
-          p.
-            Our Breakfast Show aims to make your mornings a little easier with
-            fresh local and international news, great new tracks and some of
-            your best all-time favorites. Tune in and feel free to leave us comments!
-        li
-          h3 Windaf
-          p.
-            This is one of the most popular shows on our station. Tune in to
-            discover new hits and enjoy the classics of each genre. Whether
-            you're learning a new fun fact from one of our hosts or listening
-            to one of our very informative interviews! There’s always something
-            new to discover when you're on your tea-time dash on weekdays with
-            Weskus Radio 92.3.
-        li
-          h3 Let's Talk
-        li
-          h3 Afternoon Drive
-
-      h2 Broadcast Footprint
-
     footer
       form(id="subscription" action="/subscribe" method="post")
-        h2 Subscribe to our Newsletter
-        label(for="name") Name:
-        input(placeholder="Name", id="name", required)
-        label(for="email") Email:
         input(type="email", placeholder="Email", id="email", required)
         button(type="submit") Subscribe
 
