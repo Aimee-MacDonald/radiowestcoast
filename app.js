@@ -13,7 +13,15 @@ app.get("/", (req, res) => {
 });
 
 app.get("/admin", (req, res) => {
+  res.status(200).render("admin");
+})
+
+app.get("/admin/preview1", (req, res) => {
   res.status(200).render("preview");
+});
+
+app.get("/admin/preview2", (req, res) => {
+  res.status(200).render("preview2");
 });
 
 app.listen(process.env.PORT || 8080);
