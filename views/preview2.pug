@@ -34,18 +34,28 @@ html(lang="en")
       div(class="slide", id="s21")
 
     nav(id="menu")
-      button(onclick="closeMenu()") Close
-      button Our Team
-      button Our Shows
-      button Facebook
-      button Twitter
-      button YouTube
-      button Instagram
-      input
-      button Sign up
+      div(id="leftarrow")
+        button(onclick="closeMenu()")
+          i(class="fas fa-arrow-left fa-3x")
+      div
+        button Our Team
+        button Our Shows
+      div
+        input
+        button Sign up
+      div(id="socials")
+        a(href="#")
+          i(class="fab fa-facebook fa-3x")
+        a(href="#")
+          i(class="fab fa-twitter fa-3x")
+        a(href="#")
+          i(class="fab fa-youtube fa-3x")
+        a(href="#")
+          i(class="fab fa-instagram fa-3x")
 
     div(id="content")
-      button(onclick="openMenu()", id="open") Menu
+      button(onclick="openMenu()", id="open")
+        i(class="fas fa-bars fa-3x")
       h1 Radio West Coast
       a(href="http://www.radio-south-africa.co.za/player/radio-west-coast-445818", target="_blank")
         h2 LISTEN
