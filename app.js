@@ -9,7 +9,7 @@ app.set("views", path.join(__dirname, "/views"));
 app.use(express.static(path.join(__dirname, "/static")));
 
 app.get("/", (req, res) => {
-  res.status(200).render("index");
+  res.status(200).render("preview2");
 });
 
 app.get("/admin", (req, res) => {
