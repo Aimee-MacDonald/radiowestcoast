@@ -35,8 +35,9 @@ html(lang="en")
 
     nav(id="menu")
       div
-        button Our Team
-        button Our Shows
+        button(onclick="listenPage()", id="listenButton") Listen
+        button(onclick="teamPage()", id="teamButton") Our Team
+        button(onclick="showsPage()", id="showsButton") Our Shows
       div
         input(placeholder="Email Address", type="email")
         button Sign up
@@ -56,10 +57,19 @@ html(lang="en")
           i(class="fas fa-bars fa-3x")
         button(onclick="closeMenu()", id="close")
           i(class="fas fa-arrow-left fa-3x")
-      h1 Radio West Coast
-      a(href="http://www.radio-south-africa.co.za/player/radio-west-coast-445818", target="_blank")
-        h2 LISTEN
-        i(class="fas fa-play-circle fa-10x")
-        h2 LIVE
+      div(id="listenPage")
+        h1 Radio West Coast
+        a(href="http://www.radio-south-africa.co.za/player/radio-west-coast-445818", target="_blank")
+          h2 LISTEN
+          i(class="fas fa-play-circle fa-10x")
+          h2 LIVE
+      div(id="teamPage")
+        h2 John Cloete
+        h2 Delene Van Eeden De Wet
+      div(id="showsPage")
+        h2 Breakfast Show
+        h2 The Downwind-Dash
+        h2 Let's Talk
+        h2 Afternoon Drive
 
   script(src="/scripts/index.js" charset="utf-8")

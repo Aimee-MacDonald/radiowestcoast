@@ -1,3 +1,14 @@
+var slides = document.getElementById("slider").childNodes;
+var slideIndex = Math.floor(Math.random() * 20);
+slides[slideIndex].style.width = "100%";
+
+setInterval(function(){
+  slides[slideIndex].style.width = "0";
+  slideIndex++;
+  if(slideIndex >= slides.length) slideIndex = 0;
+  slides[slideIndex].style.width = "100%";
+}, 10000);
+
 var el_menu = document.getElementById("menu");
 var el_open = document.getElementById("open");
 var el_close = document.getElementById("close");
@@ -14,13 +25,46 @@ function openMenu(){
   el_close.style.display = "block";
 }
 
-var slides = document.getElementById("slider").childNodes;
-var slideIndex = Math.floor(Math.random() * 20);
-slides[slideIndex].style.width = "100%";
+var el_listenButton = document.getElementById("listenButton");
+var el_teamButton = document.getElementById("teamButton");
+var el_showsButton = document.getElementById("showsButton");
 
-setInterval(function(){
-  slides[slideIndex].style.width = "0";
-  slideIndex++;
-  if(slideIndex >= slides.length) slideIndex = 0;
-  slides[slideIndex].style.width = "100%";
-}, 10000);
+var el_listenPage = document.getElementById("listenPage");
+var el_teamPage = document.getElementById("teamPage");
+var el_showsPage = document.getElementById("showsPage");
+
+function listenPage(){
+  el_listenButton.style.display = "none";
+  el_teamButton.style.display = "block";
+  el_showsButton.style.display = "block";
+
+  el_listenPage.style.width = "100%";
+  el_teamPage.style.width = "0";
+  el_showsPage.style.width = "0";
+
+  closeMenu();
+}
+
+function teamPage(){
+  el_listenButton.style.display = "block";
+  el_teamButton.style.display = "none";
+  el_showsButton.style.display = "block";
+
+  el_listenPage.style.width = "0";
+  el_teamPage.style.width = "100%";
+  el_showsPage.style.width = "0";
+
+  closeMenu();
+}
+
+function showsPage(){
+  el_listenButton.style.display = "block";
+  el_teamButton.style.display = "block";
+  el_showsButton.style.display = "none";
+
+  el_listenPage.style.width = "0";
+  el_teamPage.style.width = "0";
+  el_showsPage.style.width = "100%";
+
+  closeMenu();
+}
