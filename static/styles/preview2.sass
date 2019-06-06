@@ -69,15 +69,33 @@ nav
   height: 100%
   display: flex
   flex-flow: nowrap column
-  justify-content: space-between
+  justify-content: space-around
   transition: 0.5s
   overflow: hidden
+  box-shadow: 0.5rem 0 0.2rem 0 #135
+  div
+    display: flex
+    flex-flow: nowrap column
   button
     margin: 0.5rem
-    padding: 0.5rem
+    padding: 1rem
+    background-color: lightblue
+    color: orangered
+    border: none
+    border-radius: 0.5rem
+    font-weight: 900
+    cursor: pointer
+    &:hover
+      transform: translateY(-0.5rem)
+      transition: 0.5s
+      box-shadow: 0 0.5rem 0.2rem 0 #135
   input
     margin: 0.5rem
-    padding: 0.5rem
+    padding: 1rem
+    border: none
+    border-radius: 0.5rem
+    text-align: center
+    font-weight: 500
   #socials
     display: flex
     flex-flow: nowrap row
