@@ -34,9 +34,6 @@ html(lang="en")
       div(class="slide", id="s21")
 
     nav(id="menu")
-      div(id="leftarrow")
-        button(onclick="closeMenu()")
-          i(class="fas fa-arrow-left fa-3x")
       div
         button Our Team
         button Our Shows
@@ -54,8 +51,11 @@ html(lang="en")
           i(class="fab fa-instagram fa-3x")
 
     div(id="content")
-      button(onclick="openMenu()", id="open")
-        i(class="fas fa-bars fa-3x")
+      div(id="menuToggle")
+        button(onclick="openMenu()", id="open")
+          i(class="fas fa-bars fa-3x")
+        button(onclick="closeMenu()", id="close")
+          i(class="fas fa-arrow-left fa-3x")
       h1 Radio West Coast
       a(href="http://www.radio-south-africa.co.za/player/radio-west-coast-445818", target="_blank")
         h2 LISTEN
