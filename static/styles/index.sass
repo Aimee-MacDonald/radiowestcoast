@@ -117,6 +117,7 @@ nav
   #menuToggle
     align-self: flex-start
     margin: 2rem
+    position: fixed
     button
       background-color: transparent
       color: orangered
@@ -133,30 +134,45 @@ nav
     color: orangered
     i
       margin: 1rem
-  #listenPage
-    width: 100%
-    height: 100%
-    display: flex
-    flex-flow: nowrap column
-    justify-content: center
-    align-items: center
-    overflow: hidden
-    transition: 0.2s
-  #teamPage
-    width: 0%
-    height: 100%
-    display: flex
-    flex-flow: wrap row
-    justify-content: space-around
-    align-items: center
-    overflow: hidden
-    transition: 0.2s
-  #showsPage
-    width: 0%
-    height: 100%
-    display: flex
-    flex-flow: wrap row
-    justify-content: space-around
-    align-items: center
-    overflow: hidden
-    transition: 0.2s
+
+#listenPage
+  width: 100%
+  height: 100%
+  display: flex
+  flex-flow: nowrap column
+  justify-content: center
+  align-items: center
+  overflow: hidden
+  transition: 0.2s
+
+#teamPage
+  width: 0%
+  height: 100%
+  display: flex
+  flex-flow: wrap row
+  justify-content: space-around
+  align-items: center
+  overflow: hidden
+  transition: 0.2s
+  .teamMember
+    background-color: #99777777
+    max-width: 30rem
+    padding: 2rem
+    border-radius: 1rem
+
+#showsPage
+  width: 0%
+  height: 100%
+  display: flex
+  flex-flow: wrap row
+  justify-content: space-around
+  align-items: center
+  overflow: hidden
+  overflow-y: scroll
+  transition: 0.2s
+  .showDescription
+    background-color: #99777777
+    max-width: 30rem
+    padding: 2rem
+    border-radius: 1rem
+    margin: 1rem
