@@ -71,5 +71,8 @@ function parseHash(){
   closeMenu();
 }
 
-window.onhashchange = parseHash();
+window.onhashchange = function(){
+  parseHash();
+}
+
 window.onload = parseHash()
