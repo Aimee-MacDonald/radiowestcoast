@@ -33,38 +33,43 @@ var el_listenPage = document.getElementById("listenPage");
 var el_teamPage = document.getElementById("teamPage");
 var el_showsPage = document.getElementById("showsPage");
 
-function listenPage(){
-  el_listenButton.style.display = "none";
-  el_teamButton.style.display = "block";
-  el_showsButton.style.display = "block";
+function parseHash(){
+  var page = window.location.href.substring(window.location.href.indexOf("#")+1);
 
-  el_listenPage.style.width = "100%";
-  el_teamPage.style.width = "0";
-  el_showsPage.style.width = "0";
+  switch(page){
+    case "listen":
+      el_listenButton.style.display = "none";
+      el_teamButton.style.display = "block";
+      el_showsButton.style.display = "block";
+
+      el_listenPage.style.width = "100%";
+      el_teamPage.style.width = "0";
+      el_showsPage.style.width = "0";
+      break;
+
+    case "team":
+      el_listenButton.style.display = "block";
+      el_teamButton.style.display = "none";
+      el_showsButton.style.display = "block";
+
+      el_listenPage.style.width = "0";
+      el_teamPage.style.width = "100%";
+      el_showsPage.style.width = "0";
+      break;
+
+    case "shows":
+      el_listenButton.style.display = "block";
+      el_teamButton.style.display = "block";
+      el_showsButton.style.display = "none";
+
+      el_listenPage.style.width = "0";
+      el_teamPage.style.width = "0";
+      el_showsPage.style.width = "100%";
+      break;
+  }
 
   closeMenu();
 }
 
-function teamPage(){
-  el_listenButton.style.display = "block";
-  el_teamButton.style.display = "none";
-  el_showsButton.style.display = "block";
-
-  el_listenPage.style.width = "0";
-  el_teamPage.style.width = "100%";
-  el_showsPage.style.width = "0";
-
-  closeMenu();
-}
-
-function showsPage(){
-  el_listenButton.style.display = "block";
-  el_teamButton.style.display = "block";
-  el_showsButton.style.display = "none";
-
-  el_listenPage.style.width = "0";
-  el_teamPage.style.width = "0";
-  el_showsPage.style.width = "100%";
-
-  closeMenu();
-}
+window.onhashchange = parseHash();
+window.onload = parseHash()
