@@ -38,9 +38,9 @@ html(lang="en")
         a(id="listenButton", href="#listen") Listen
         a(id="teamButton", href="#team") Our Team
         a(id="showsButton", href="#shows") Our Shows
-      div
-        input(placeholder="Email Address", type="email")
-        button Sign up
+      form(action="/signup" method="post")
+        input(placeholder="Email Address", type="email", name="email")
+        button(onclick=("emailsignup()")) Sign up
       div(id="socials")
         a(href="https://www.facebook.com/RadioWeskus92.3FM/", target="_blank")
           i(class="fab fa-facebook fa-2x")
