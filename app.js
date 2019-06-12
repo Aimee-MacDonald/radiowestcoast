@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const Subscriber = require(path.join(__dirname, "/dbmodels/subscriber"));
+const AdminUser = require(path.join(__dirname, "/dbmodels/adminUser"));
 
 mongoose.connect(process.env.DBVARS, {useNewUrlParser: true});
 
@@ -36,6 +37,19 @@ app.get("/admin", (req, res) => {
 
 app.get("/admin/register", (req, res) => {
   res.status(200).render("adminRegister");
+});
+
+app.post("/admin/register", (req, res) => {
+  var adminUser = new AdminUser({
+    'email': req.body.email,
+    'password': req.body.password
+  });
+
+  adminUser.save(err => {
+    if(err) throw err;
+  });
+
+  res.status(200).redirect("/admin");
 });
 
 app.get("/admin/login", (req, res) => {
