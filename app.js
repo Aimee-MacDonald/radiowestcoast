@@ -4,6 +4,7 @@ const path = require("path");
 require("dotenv").config();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 
 const Subscriber = require(path.join(__dirname, "/dbmodels/subscriber"));
 const AdminUser = require(path.join(__dirname, "/dbmodels/adminUser"));
@@ -54,6 +55,35 @@ app.post("/admin/register", (req, res) => {
 
 app.get("/admin/login", (req, res) => {
   res.status(200).render("adminLogin");
+});
+
+app.post("/admin/login", (req, res) => {
+  AdminUser.find({email: req.body.email}, function(err, docs){
+    if(err) throw err;
+
+    if(docs.length > 0){
+      bcrypt.compare(req.body.password, docs[0].password, function(err, resp){
+        if(err) throw err;
+
+        if(resp){
+          /*
+          req.login(docs[0]._id, function(err){
+            if(err) throw err;
+          });
+          */
+          res.redirect("/admin/user");
+        } else {
+          res.redirect("admin/login");
+        }
+      });
+    } else {
+      res.redirect("/admin/login");
+    }
+  });
+});
+
+app.get("/admin/user", (req, res) => {
+  res.status(200).render("adminUser");
 });
 
 app.listen(process.env.PORT || 8080);

@@ -10,4 +10,8 @@ html(lang="en")
 
   body
     h1 Admin Login
+    form(action="/admin/login" method="post")
+      input(type="email", placeholder="email", name="email")
+      input(type="password", placeholder="password", name="password")
+      button(type="submit") Register
   script(src="/scripts/adminLogin.js" charset="utf-8")
