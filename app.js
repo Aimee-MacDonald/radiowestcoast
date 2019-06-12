@@ -18,6 +18,10 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+app.get("/", (req, res) => {
+  res.status(200).render("index");
+});
+
 app.post("/signup", (req, res) => {
   var subscriber = new Subscriber({'email': req.body.email});
   subscriber.save(err => {
@@ -26,8 +30,16 @@ app.post("/signup", (req, res) => {
   res.redirect("/");
 });
 
-app.get("/", (req, res) => {
-  res.status(200).render("index");
+app.get("/admin", (req, res) => {
+  res.status(200).render("admin");
+});
+
+app.get("/admin/register", (req, res) => {
+  res.status(200).render("adminRegister");
+});
+
+app.get("/admin/login", (req, res) => {
+  res.status(200).render("adminLogin");
 });
 
 app.listen(process.env.PORT || 8080);
