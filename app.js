@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const session = require("express-session");
+const csurf = require("csurf");
 
 const Subscriber = require(path.join(__dirname, "/dbmodels/subscriber"));
 const AdminUser = require(path.join(__dirname, "/dbmodels/adminUser"));
@@ -30,6 +31,8 @@ app.use(bodyParser.urlencoded({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(csurf());
 
 app.get("/", (req, res) => {
   res.status(200).render("index");
@@ -62,7 +65,7 @@ app.get("/admin", (req, res) => {
 });
 
 app.get("/admin/register", (req, res) => {
-  res.status(200).render("adminRegister");
+  res.status(200).render("adminRegister", {csrfToken: req.csrfToken()});
 });
 
 app.post("/admin/register", (req, res) => {
@@ -97,7 +100,7 @@ app.post("/admin/register", (req, res) => {
 });
 
 app.get("/admin/login", (req, res) => {
-  res.status(200).render("adminLogin");
+  res.status(200).render("adminLogin", {csrfToken: req.csrfToken()});
 });
 
 app.post("/admin/login", (req, res) => {

@@ -13,5 +13,6 @@ html(lang="en")
     form(action="/admin/register" method="post")
       input(type="email", placeholder="email", name="email")
       input(type="password", placeholder="password", name="password")
+      input(type="hidden", name="_csrf", value= csrfToken)
       button(type="submit") Register
   script(src="/scripts/adminRegister.js" charset="utf-8")
