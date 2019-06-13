@@ -44,7 +44,21 @@ app.post("/signup", (req, res) => {
 });
 
 app.get("/admin", (req, res) => {
-  res.status(200).render("admin");
+  if(req.isAuthenticated()){
+    AdminUser.find({_id: req.user}, function(err, docs){
+      if(err) throw err;
+
+      if(docs.length > 0){
+        if(docs[0].access === "admin"){
+          res.status(200).render("admin");
+        } else {
+          res.redirect("/admin/user");
+        }
+      }
+    });
+  } else {
+    res.redirect("/admin/login");
+  }
 });
 
 app.get("/admin/register", (req, res) => {
@@ -61,7 +75,8 @@ app.post("/admin/register", (req, res) => {
     } else {
       var adminUser = new AdminUser({
         'email': req.body.email,
-        'password': req.body.password
+        'password': req.body.password,
+        'access': "user"
       });
 
       adminUser.save(err => {
@@ -97,9 +112,17 @@ app.post("/admin/login", (req, res) => {
           req.login(docs[0]._id, function(err){
             if(err) throw err;
           });
-          res.redirect("/admin/user");
+
+          switch(docs[0].access){
+            case "user":
+              res.redirect("/admin/user");
+              break;
+            case "admin":
+              res.redirect("/admin");
+              break;
+          }
         } else {
-          res.redirect("admin/login");
+          res.redirect("/admin/login");
         }
       });
     } else {
@@ -110,7 +133,17 @@ app.post("/admin/login", (req, res) => {
 
 app.get("/admin/user", (req, res) => {
   if(req.isAuthenticated()){
-    res.status(200).render("adminUser");
+    AdminUser.find({_id: req.user}, function(err, docs){
+      if(err) throw err;
+
+      if(docs.length > 0){
+        if(docs[0].access === "user"){
+          res.status(200).render("adminUser");
+        } else {
+          res.redirect("/admin");
+        }
+      }
+    });
   } else {
     res.redirect("/admin/login");
   }
