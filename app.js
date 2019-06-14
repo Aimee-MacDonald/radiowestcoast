@@ -152,6 +152,31 @@ app.get("/admin/user", (req, res) => {
   }
 });
 
+app.get("/admin/getUsers", (req, res) => {
+  //TODO: Secure This!!
+  AdminUser.find({}, function(err, docs){
+    if(err) throw err;
+
+    var returnPackage = [];
+    for(var i = 0; i < docs.length; i++){
+      var uo = {
+        'user': docs[i].email,
+        'access': docs[i].access
+      }
+
+      returnPackage.push(uo);
+    }
+    res.send({users: returnPackage});
+  });
+});
+
+app.get("/admin/getMailinglist", (req, res) => {
+  Subscriber.find({}, function(err, docs){
+    if(err) throw err;
+    res.status(200).send(docs);
+  });
+});
+
 app.listen(process.env.PORT || 8080);
 
 
