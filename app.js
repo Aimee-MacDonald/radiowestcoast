@@ -79,7 +79,8 @@ app.post("/admin/register", (req, res) => {
       var adminUser = new AdminUser({
         'email': req.body.email,
         'password': req.body.password,
-        'access': "user"
+        'access': "user",
+        'visible': 'false'
       });
 
       adminUser.save(err => {

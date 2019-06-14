@@ -5,7 +5,10 @@ const bcrypt = require("bcryptjs");
 var schema = new Schema({
   email: {type: String, required: true},
   password: {type: String, required: true},
-  access: {type: String, required: true}
+  access: {type: String, required: true},
+  visible: {type: Boolean, required: true},
+  username: {type: String, required: false},
+  bio: {type: String, required: false}
 });
 
 schema.pre("save", function(callback){
