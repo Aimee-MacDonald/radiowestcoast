@@ -76,3 +76,31 @@ window.onhashchange = function(){
 }
 
 window.onload = parseHash()
+
+getTeamProfiles();
+
+function getTeamProfiles(){
+  var oReq = new XMLHttpRequest();
+  oReq.addEventListener("load", createTeamProfiles);
+  oReq.open("GET", "/getTeamProfiles");
+  oReq.send();
+};
+
+function createTeamProfiles(){
+  var profiles = JSON.parse(this.responseText);
+  var el_teamPage = document.getElementById("teamPage");
+  for(var i = 0; i < profiles.length; i++){
+    var el_teamMember = document.createElement("div");
+    el_teamMember.classList = "teamMember";
+    var el_tmName = document.createElement("h2");
+    el_tmName.innerText = profiles[i].name;
+    var el_tmBio = document.createElement("p");
+    el_tmBio.innerText = profiles[i].bio;
+
+    el_teamMember.append(el_tmName);
+    el_teamMember.append(el_tmBio);
+
+    el_teamPage.append(el_teamMember);
+  }
+  console.log(profiles);
+}

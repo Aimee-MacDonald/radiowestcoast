@@ -185,6 +185,26 @@ app.get("/admin/logout", (req, res) => {
   res.status(200).redirect("/");
 });
 
+app.get("/getTeamProfiles", (req, res) => {
+  AdminUser.find({visible: true}, function(err, docs){
+    if(err) throw err;
+
+    var response = [];
+
+    for(var i = 0; i < docs.length; i++){
+      var tm = {};
+      if(docs[i].username != undefined){
+        tm.name = docs[i].username;
+      } else {
+        tm.name = docs[i].email;
+      }
+      tm.bio = docs[i].bio;
+      response.push(tm);
+    }
+    res.status(200).send(response);
+  });
+});
+
 app.listen(process.env.PORT || 8080);
 
 
