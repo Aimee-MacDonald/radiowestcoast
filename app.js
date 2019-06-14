@@ -171,10 +171,17 @@ app.get("/admin/getUsers", (req, res) => {
 });
 
 app.get("/admin/getMailinglist", (req, res) => {
+  //TODO: Secure This!!
   Subscriber.find({}, function(err, docs){
     if(err) throw err;
     res.status(200).send(docs);
   });
+});
+
+app.get("/admin/logout", (req, res) => {
+  //TODO: Secure This!!
+  req.logout();
+  res.status(200).redirect("/");
 });
 
 app.listen(process.env.PORT || 8080);
