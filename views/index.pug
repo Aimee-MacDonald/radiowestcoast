@@ -40,6 +40,7 @@ html(lang="en")
         a(id="showsButton", href="#shows") Our Shows
       form(action="/signup" method="post")
         input(placeholder="Email Address", type="email", name="email")
+        input(type="hidden", name="_csrf", value= csrfToken)
         button(onclick=("emailsignup()")) Sign up
       div(id="socials")
         a(href="https://www.facebook.com/RadioWeskus92.3FM/", target="_blank")
