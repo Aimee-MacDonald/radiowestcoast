@@ -9,12 +9,16 @@ html(lang="en")
     title Radio West Coast
 
   body
-    h1 Admin
-    table(id="usersTable")
-      tr
-        td User
-        td Access Level
+    header
+      h1 Admin
+      a(href="/admin/logout") Logout
 
-    ul(id="mailingList")
-    a(href="/admin/logout") Logout
+    div(class="container")
+      table(id="usersTable")
+        tr
+          td User
+          td Access Level
+
+      ul(id="mailingList")
+
   script(src="/scripts/admin.js" charset="utf-8")
