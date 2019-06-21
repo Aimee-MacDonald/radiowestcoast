@@ -9,12 +9,18 @@ html(lang="en")
     title Radio West Coast
 
   body
-    h1 Admin User
-    img(alt="User Profile Image")
-    button Upload
-    p Visible
-    input(type="checkbox")
-    p Personal Bio
-    button Edit
-    a(href="/admin/logout") Logout
+    header
+      h1 Admin User
+      a(href="/admin/logout") Logout
+
+    div(class="container")
+      div(id="img-container")
+        img(alt="User Profile Image")
+        button Upload
+      p Visible
+      div(id="toggleSwitch", onclick="toggleSwitch()")
+        div
+      p Personal Bio
+      button Edit
+
   script(src="/scripts/adminUser.js" charset="utf-8")
