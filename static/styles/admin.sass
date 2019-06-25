@@ -1,5 +1,13 @@
+$blue: #0d47a1
+$lightblue: #5472d3
+$darkblue: #002171
+
+$orange: #ff8f00
+$lightorange: #ffc046
+$darkorange: #c56000
+
 body
-  background-color: #246
+  background-color: $blue
   margin: 0
   overflow: hidden
   width: 100vw
@@ -8,16 +16,16 @@ body
   flex-flow: nowrap column
 
 header
-  background-color: black
+  background-color: $darkblue
   display: flex
   flex-flow: nowrap row
   justify-content: space-between
   align-items: center
   padding: 0 1rem
   h1
-    color: orangered
+    color: $orange
   a
-    background-color: orangered
+    background-color: $orange
     color: black
     padding: 0.5rem 1rem
     border-radius: 0.2rem
@@ -34,28 +42,28 @@ header
   padding-top: 5rem
 
 #usersTable
-  background-color: lightblue
+  background-color: $lightblue
   padding: 1rem
   min-width: 40vw
   border-spacing: 0.5rem 0.5rem
   border-radius: 0.5rem
   tr
-    background-color: yellow
     td
-      background-color: red
+      background-color: $lightorange
       border-radius: 0.3rem
       padding: 0.5rem 1rem
       text-align: center
 
 #mailingList
-  background-color: yellow
+  background-color: $lightblue
   margin: 0
   padding: 0.5rem
   list-style-type: none
   min-width: 30vw
   border-radius: 0.5rem
   li
-    background-color: green
+    background-color: $lightorange
     padding: 0.5rem 2rem
     border-radius: 0.3rem
     text-align: center
+    margin-bottom: 0.5rem

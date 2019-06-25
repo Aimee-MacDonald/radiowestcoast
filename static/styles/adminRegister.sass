@@ -1,5 +1,13 @@
+$blue: #0d47a1
+$lightblue: #5472d3
+$darkblue: #002171
+
+$orange: #ff8f00
+$lightorange: #ffc046
+$darkorange: #c56000
+
 body
-  background-color: #246
+  background-color: $blue
   width: 100vw
   height: 100vh
   overflow: hidden
@@ -16,8 +24,8 @@ form
 button
   margin: 0.5rem
   padding: 1rem
-  background-color: lightblue
-  color: orangered
+  background-color: $orange
+  color: black
   border: none
   border-radius: 0.5rem
   font-weight: 900
@@ -27,7 +35,7 @@ button
   &:hover
     transform: translateY(-0.5rem)
     transition: 0.5s
-    box-shadow: 0 0.5rem 0.2rem 0 #135
+    box-shadow: 0 0.5rem 0.2rem 0 $darkblue
 
 input
   margin: 0.5rem

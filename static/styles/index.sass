@@ -1,3 +1,11 @@
+$blue: #0d47a1
+$lightblue: #5472d3
+$darkblue: #002171
+
+$orange: #ff8f00
+$lightorange: #ffc046
+$darkorange: #c56000
+
 body
   margin: 0
   display: flex
@@ -63,7 +71,7 @@ body
     background-image: url("https://i.imgur.com/FMxlp6v.png")
 
 nav
-  background-color: #246
+  background-color: $blue
   flex-shrink: 0
   width: 0
   height: 100%
@@ -72,7 +80,7 @@ nav
   justify-content: space-around
   transition: 0.5s
   overflow: hidden
-  box-shadow: 0.5rem 0 0.2rem 0 #135
+  box-shadow: 0.5rem 0 0.2rem 0 $darkblue
   div
     display: flex
     flex-flow: nowrap column
@@ -81,19 +89,8 @@ nav
   a
     margin: 0.5rem
     padding: 1rem
-    background-color: lightblue
-    color: orangered
-    border: none
-    border-radius: 0.5rem
-    font-weight: 900
-    cursor: pointer
-    text-align: center
-    text-decoration: none
-  button
-    margin: 0.5rem
-    padding: 1rem
-    background-color: lightblue
-    color: orangered
+    background-color: $lightblue
+    color: black
     border: none
     border-radius: 0.5rem
     font-weight: 900
@@ -103,7 +100,20 @@ nav
     &:hover
       transform: translateY(-0.5rem)
       transition: 0.5s
-      box-shadow: 0 0.5rem 0.2rem 0 #135
+      box-shadow: 0 0.5rem 0.2rem 0 $darkblue
+  button
+    margin: 0.5rem
+    padding: 1rem
+    background-color: $lightblue
+    color: black
+    border: none
+    border-radius: 0.5rem
+    font-weight: 900
+    cursor: pointer
+    text-align: center
+    text-decoration: none
+    &:hover
+      background-color: $darkorange
   input
     margin: 0.5rem
     padding: 1rem
@@ -117,7 +127,7 @@ nav
     justify-content: center
     a
       background-color: transparent
-      color: lightblue
+      color: $darkblue
 
 #content
   background-color: #222222AA
@@ -134,18 +144,18 @@ nav
     position: fixed
     button
       background-color: transparent
-      color: orangered
+      color: $lightorange
       border: none
       cursor: pointer
     #close
       display: none
   h1
-    color: orangered
+    color: $lightorange
   a
     display: flex
     align-items: center
     text-decoration: none
-    color: orangered
+    color: $lightorange
     i
       margin: 1rem
 
