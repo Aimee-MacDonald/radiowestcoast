@@ -35,7 +35,19 @@ app.use(passport.session());
 app.use(csurf());
 
 app.get("/", (req, res) => {
-  res.status(200).render("index", {csrfToken: req.csrfToken()});
+  res.redirect("/news");
+});
+
+app.get("/news", (req, res) => {
+  res.status(200).render("news");
+});
+
+app.get("/team", (req, res) => {
+  res.status(200).render("team");
+});
+
+app.get("/shows", (req, res) => {
+  res.status(200).render("shows");
 });
 
 app.post("/signup", (req, res) => {

@@ -1,0 +1,36 @@
+body
+  margin: 0
+  width: 100vw
+  height: 100vh
+  overflow-x: hidden
+  display: flex
+  flex-flow: nowrap row
+  align-items: flex-start
+
+nav
+  background-color: darken(grey, 30)
+  width: 0%
+  height: 100%
+  overflow: hidden
+  position: fixed
+  display: flex
+  flex-flow: nowrap column
+  justify-content: flex-start
+  align-items: center
+  transition: 0.5s
+
+#menu_open
+  background-color: pink
+  position: fixed
+
+#content
+  background-color: lighten(grey, 30)
+  width: 100%
+  min-height: 100%
+  display: flex
+  flex-flow: nowrap row
+  justify-content: center
+  #main
+    background-color: white
+    max-width: 70rem
+    width: 100%
