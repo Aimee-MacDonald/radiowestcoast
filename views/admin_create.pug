@@ -5,7 +5,9 @@ block content
 
   div(id="main")
     form(action="/admin/createArticle" method="post")
-      input(placeholder="Image")
-      input(placeholder="Header")
-      textarea(placeholder="Synopsis")
-      input(placeholder="Date")
+      input(name="image", placeholder="Image")
+      input(name="header", placeholder="Header")
+      textarea(name="synopsis", placeholder="Synopsis")
+      input(name="date", placeholder="Date")
+      input(type="hidden", name="_csrf", value= csrfToken)
+      button(type="submit") Post

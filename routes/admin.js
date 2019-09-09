@@ -4,6 +4,7 @@ const path = require("path");
 const bcrypt = require("bcryptjs");
 
 const AdminUser = require(path.join(__dirname, "../dbmodels/adminUser"));
+const Article = require(path.join(__dirname, "../dbmodels/article"));
 
 router.get("/", (req, res) => {
   if(req.isAuthenticated()){
@@ -61,12 +62,37 @@ router.get("/news", (req, res) => {
 
 router.get("/create", (req, res) => {
   if(req.isAuthenticated()){
-    res.status(200).render("admin_create");
+    res.status(200).render("admin_create", {csrfToken: req.csrfToken()});
   } else {
     res.redirect("/admin/login");
   }
 });
 
+router.post("/createArticle", (req, res) => {
+  if(req.isAuthenticated()){
+    var article = new Article({
+      'image': req.body.image,
+      'header': req.body.header,
+      'synopsis': req.body.synopsis,
+      'date': req.body.date
+    });
+
+    article.save(err => {
+      if(err) throw err;
+    });
+
+    res.redirect("/admin/news");
+  } else {
+    res.redirect("/admin/login");
+  }
+});
+
+router.get("/newsItems", (req, res) => {
+  Article.find({}, function(err, docs){
+    if(err) throw err;
+    res.status(200).send(docs);
+  });
+});
 /*
 app.get("/admin/register", (req, res) => {
   res.status(200).render("adminRegister", {csrfToken: req.csrfToken()});
