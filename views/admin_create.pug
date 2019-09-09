@@ -1,0 +1,11 @@
+extends global.pug
+
+block content
+  link(rel="stylesheet", href="/styles/news.css")
+
+  div(id="main")
+    form(action="/admin/createArticle" method="post")
+      input(placeholder="Image")
+      input(placeholder="Header")
+      textarea(placeholder="Synopsis")
+      input(placeholder="Date")
