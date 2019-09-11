@@ -19,7 +19,6 @@ function populateNews(){
     var el_news_header = document.createElement("h2");
     var el_news_synopsis = document.createElement("p");
     var el_news_date = document.createElement("p");
-    var el_news_delete = document.createElement("button");
 
     el_news_item.classList = "news_item";
     el_news_img.classList = "news_img";
@@ -27,21 +26,14 @@ function populateNews(){
     el_news_header.innerText = newsItems[i].header;
     el_news_synopsis.innerText = newsItems[i].synopsis;
     el_news_date.innerText = newsItems[i].date;
-    el_news_delete.setAttribute("onclick", "deleteNews(" + i + ")");
-    el_news_delete.innerText = "Delete";
 
     el_news_item.append(el_news_img);
     el_news_item.append(el_news_header);
     el_news_item.append(el_news_synopsis);
     el_news_item.append(el_news_date);
-    el_news_item.append(el_news_delete);
 
     el_news_items.append(el_news_item);
   }
 
   el_news_items.childNodes[0].id = "main_news";
-}
-
-function deleteNews(index){
-  console.log("Delete News: " + index);
 }

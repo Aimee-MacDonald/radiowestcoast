@@ -93,12 +93,12 @@ router.get("/newsItems", (req, res) => {
     res.status(200).send(docs);
   });
 });
-/*
-app.get("/admin/register", (req, res) => {
+
+router.get("/register", (req, res) => {
   res.status(200).render("adminRegister", {csrfToken: req.csrfToken()});
 });
 
-app.post("/admin/register", (req, res) => {
+router.post("/register", (req, res) => {
   AdminUser.find({email: req.body.email}, function(err, docs){
     if(err) throw err;
 
@@ -121,7 +121,7 @@ app.post("/admin/register", (req, res) => {
           if(docs.length > 0){
             req.login(docs[0]._id, function(err){
               if(err) throw err;
-              res.redirect("/admin/user");
+              res.redirect("/admin/news");
             });
           }
         });
@@ -130,6 +130,7 @@ app.post("/admin/register", (req, res) => {
   });
 });
 
+/*
 app.get("/admin/user", (req, res) => {
   if(req.isAuthenticated()){
     AdminUser.find({_id: req.user}, function(err, docs){
