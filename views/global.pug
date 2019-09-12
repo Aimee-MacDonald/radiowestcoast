@@ -12,13 +12,15 @@ html(lang="en")
 
   body
     nav
-      button(id="menu_close", onclick="closeMenu()") Close Menu
+      button(id="menu_close", onclick="closeMenu()")
+        i(class="fas fa-times fa-4x")
       a(href="/news") News
       a(href=href="http://www.radio-south-africa.co.za/player/radio-west-coast-445818", target="_blank") Listen
       a(href="/team") The Team
       a(href="/shows") Shows
 
-    button(id="menu_open", onclick="openMenu()") Open Menu
+    button(id="menu_open", onclick="openMenu()")
+      i(class="fas fa-bars fa-3x")
 
     div(id="content")
       block content
