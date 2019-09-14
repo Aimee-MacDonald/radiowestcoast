@@ -8,17 +8,7 @@ const Article = require(path.join(__dirname, "../dbmodels/article"));
 
 router.get("/", (req, res) => {
   if(req.isAuthenticated()){
-    AdminUser.find({_id: req.user}, function(err, docs){
-      if(err) throw err;
-
-      if(docs.length > 0){
-        if(docs[0].access === "admin"){
-          res.status(200).render("admin");
-        } else {
-          res.redirect("/admin/news");
-        }
-      }
-    });
+    res.redirect("/admin/news");
   } else {
     res.redirect("/admin/login");
   }
@@ -62,7 +52,21 @@ router.get("/news", (req, res) => {
 
 router.get("/create", (req, res) => {
   if(req.isAuthenticated()){
-    res.status(200).render("admin_create", {csrfToken: req.csrfToken()});
+    var dataPackage = {csrfToken: req.csrfToken()};
+
+    Article.find({"_id" : req.query.id}, function(err, docs){
+      if(err) throw err;
+
+      if(docs.length > 0){
+        dataPackage.id = req.query.id;
+        dataPackage.image = docs[0].image;
+        dataPackage.header = docs[0].header;
+        dataPackage.synopsis = docs[0].synopsis;
+        dataPackage.date = docs[0].date;
+      }
+
+      res.status(200).render("admin_create", dataPackage);
+    });
   } else {
     res.redirect("/admin/login");
   }
@@ -70,17 +74,37 @@ router.get("/create", (req, res) => {
 
 router.post("/createArticle", (req, res) => {
   if(req.isAuthenticated()){
-    var article = new Article({
-      'image': req.body.image,
-      'header': req.body.header,
-      'synopsis': req.body.synopsis,
-      'date': req.body.date
-    });
+    if(req.body.id){
+      Article.find({"_id": req.body.id}, function(err, docs){
+        if(err) throw err;
 
-    article.save(err => {
-      if(err) throw err;
-    });
+        if(docs.length > 0){
+          var article = docs[0];
+          article.image = req.body.image;
+          article.header = req.body.header;
+          article.synopsis = req.body.synopsis;
+          article.date = req.body.date;
 
+          article.save(err => {
+            if(err) throw err;
+          });
+        }
+      });
+    } else {
+      var article = new Article({
+        'image': req.body.image,
+        'header': req.body.header,
+        'synopsis': req.body.synopsis,
+        'date': req.body.date
+      });
+
+      article.save(err => {
+        if(err) throw err;
+      });
+    }
+    /*
+
+*/
     res.redirect("/admin/news");
   } else {
     res.redirect("/admin/login");

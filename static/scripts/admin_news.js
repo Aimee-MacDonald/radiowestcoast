@@ -57,6 +57,7 @@ function deleteNews(index){
 
 function editNews(index){
   var newsItemID = el_news_items.childNodes[index].childNodes[4].innerText;
+  window.location.href = "/admin/create?id=" + newsItemID;
 }
 
 function itemDeleted(){
