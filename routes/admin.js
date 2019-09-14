@@ -87,6 +87,12 @@ router.post("/createArticle", (req, res) => {
   }
 });
 
+router.get("/delete", (req, res) => {
+  Article.deleteOne({"_id": req.query.id}, function(err){
+    if(err) throw err;
+  });
+});
+
 router.get("/newsItems", (req, res) => {
   Article.find({}, function(err, docs){
     if(err) throw err;

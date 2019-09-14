@@ -1,12 +1,12 @@
 var el_news_items = document.getElementById("news_items");
 var newsItems;
 
-getNews();
+getAPI("/admin/newsItems", populateNews);
 
-function getNews(){
+function getAPI(path, eventHandler){
   var oReq = new XMLHttpRequest();
-  oReq.addEventListener("load", populateNews);
-  oReq.open("GET", "/admin/newsItems");
+  oReq.addEventListener("load", eventHandler);
+  oReq.open("GET", path);
   oReq.send();
 }
 
@@ -19,7 +19,9 @@ function populateNews(){
     var el_news_header = document.createElement("h2");
     var el_news_synopsis = document.createElement("p");
     var el_news_date = document.createElement("p");
+    var el_news_id = document.createElement("p");
     var el_news_delete = document.createElement("button");
+    var el_news_edit = document.createElement("button");
 
     el_news_item.classList = "news_item";
     el_news_img.classList = "news_img";
@@ -27,14 +29,20 @@ function populateNews(){
     el_news_header.innerText = newsItems[i].header;
     el_news_synopsis.innerText = newsItems[i].synopsis;
     el_news_date.innerText = newsItems[i].date;
+    el_news_id.innerText = newsItems[i]._id;
+    el_news_id.style.display = "none";
     el_news_delete.setAttribute("onclick", "deleteNews(" + i + ")");
     el_news_delete.innerText = "Delete";
+    el_news_edit.setAttribute("onclick", "editNews(" + i + ")");
+    el_news_edit.innerText = "Edit";
 
     el_news_item.append(el_news_img);
     el_news_item.append(el_news_header);
     el_news_item.append(el_news_synopsis);
     el_news_item.append(el_news_date);
+    el_news_item.append(el_news_id);
     el_news_item.append(el_news_delete);
+    el_news_item.append(el_news_edit);
 
     el_news_items.append(el_news_item);
   }
@@ -43,5 +51,14 @@ function populateNews(){
 }
 
 function deleteNews(index){
-  console.log("Delete News: " + index);
+  var newsItemID = el_news_items.childNodes[index].childNodes[4].innerText;
+  getAPI("/admin/delete?id=" + newsItemID, itemDeleted);
+}
+
+function editNews(index){
+  var newsItemID = el_news_items.childNodes[index].childNodes[4].innerText;
+}
+
+function itemDeleted(){
+  console.log("Item Deleted");
 }
