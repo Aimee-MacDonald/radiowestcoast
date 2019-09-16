@@ -161,56 +161,11 @@ router.post("/register", (req, res) => {
 });
 
 /*
-app.get("/admin/user", (req, res) => {
-  if(req.isAuthenticated()){
-    AdminUser.find({_id: req.user}, function(err, docs){
-      if(err) throw err;
-
-      if(docs.length > 0){
-        if(docs[0].access === "user"){
-          res.status(200).render("adminUser");
-        } else {
-          res.redirect("/admin");
-        }
-      }
-    });
-  } else {
-    res.redirect("/admin/login");
-  }
-});
-
-app.get("/admin/getUsers", (req, res) => {
-  //TODO: Secure This!!
-  AdminUser.find({}, function(err, docs){
-    if(err) throw err;
-
-    var returnPackage = [];
-    for(var i = 0; i < docs.length; i++){
-      var uo = {
-        'user': docs[i].email,
-        'access': docs[i].access
-      }
-
-      returnPackage.push(uo);
-    }
-    res.send({users: returnPackage});
-  });
-});
-
-app.get("/admin/getMailinglist", (req, res) => {
-  //TODO: Secure This!!
-  Subscriber.find({}, function(err, docs){
-    if(err) throw err;
-    res.status(200).send(docs);
-  });
-});
-
 app.get("/admin/logout", (req, res) => {
   //TODO: Secure This!!
   req.logout();
   res.status(200).redirect("/");
 });
-
 */
 
 module.exports = router;
