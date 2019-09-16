@@ -82,6 +82,10 @@ app.get("/getTeamProfiles", (req, res) => {
   });
 });
 
+app.get("/sponsors", (req, res) => {
+  res.status(200).render("sponsors");
+});
+
 app.listen(process.env.PORT || 8080);
 
 
