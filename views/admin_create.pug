@@ -5,8 +5,8 @@ block content
 
   div(id="main")
     form(action="/admin/createArticle", method="post")
-      input(name="_csrf", value= csrfToken)
-      input(name="id", value= id)
+      input(name="_csrf", value= csrfToken, type="hidden")
+      input(name="id", value= id, type="hidden")
       input(name="image", placeholder="Image URL", value= image, required)
       input(name="header", placeholder="Header", value= header, required)
       textarea(name="synopsis", placeholder="Synopsis", required) !{synopsis}
