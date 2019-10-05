@@ -8,6 +8,8 @@ const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const session = require("express-session");
 const csurf = require("csurf");
+const fileupload = require("express-fileupload");
+const cloudinary = require("cloudinary").v2;
 
 const Subscriber = require(path.join(__dirname, "/dbmodels/subscriber"));
 const AdminUser = require(path.join(__dirname, "/dbmodels/adminUser"));
@@ -19,6 +21,12 @@ mongoose.connect(process.env.DBVARS, {useNewUrlParser: true});
 
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "/views"));
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET
+});
 
 app.use(session({
   secret: process.env.SECRET,
@@ -34,6 +42,10 @@ app.use(bodyParser.urlencoded({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(fileupload({
+  useTempFiles: true
+}));
 
 app.use(csurf());
 

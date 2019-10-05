@@ -4,13 +4,20 @@ block content
   link(rel="stylesheet", href="/styles/admin_create.css")
 
   div(id="main")
+    form(action="/admin/uploadImage", method="post", id="uploadForm", enctype="multipart/form-data")
+      input(name="_csrf", id="csrf", value= csrfToken, type="hidden")
+      input(type="file", name="image")
+      button(type="submit") Upload
+
     form(action="/admin/createArticle", method="post")
-      input(name="_csrf", value= csrfToken, type="hidden")
+      input(name="_csrf", id="csrf", value= csrfToken, type="hidden")
       input(name="id", value= id, type="hidden")
-      input(name="image", placeholder="Image URL", value= image, required)
+      input(name="image", id="imageBox", placeholder="Image URL", value= image, required)
       input(name="header", placeholder="Header", value= header, required)
       textarea(name="synopsis", placeholder="Synopsis", required) !{synopsis}
       input(name="date", placeholder="Date", value= date, required)
       input(name="visible", type="checkbox")
       p visible
       button(type="submit") Post
+
+  script(src="/scripts/admin_create.js" charset="utf-8")
