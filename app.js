@@ -13,6 +13,7 @@ const Subscriber = require(path.join(__dirname, "/dbmodels/subscriber"));
 const AdminUser = require(path.join(__dirname, "/dbmodels/adminUser"));
 
 const admin = require(path.join(__dirname, "/routes/admin"));
+const api = require(path.join(__dirname, "/routes/api"));
 
 mongoose.connect(process.env.DBVARS, {useNewUrlParser: true});
 
@@ -37,6 +38,7 @@ app.use(passport.session());
 app.use(csurf());
 
 app.use("/admin", admin);
+app.use("/api", api);
 
 app.get("/", (req, res) => {
   res.redirect("/news");

@@ -84,6 +84,11 @@ router.post("/createArticle", (req, res) => {
           article.header = req.body.header;
           article.synopsis = req.body.synopsis;
           article.date = req.body.date;
+          if(req.body.visible){
+            article.visible = true;
+          } else {
+            article.visible = false;
+          }
 
           article.save(err => {
             if(err) throw err;
@@ -98,13 +103,17 @@ router.post("/createArticle", (req, res) => {
         'date': req.body.date
       });
 
+      if(req.body.visible){
+        article.visible = true;
+      } else {
+        article.visible = false;
+      }
+
       article.save(err => {
         if(err) throw err;
       });
     }
-    /*
-
-*/
+    
     res.redirect("/admin/news");
   } else {
     res.redirect("/admin/login");

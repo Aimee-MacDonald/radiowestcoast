@@ -6,7 +6,7 @@ getNews();
 function getNews(){
   var oReq = new XMLHttpRequest();
   oReq.addEventListener("load", populateNews);
-  oReq.open("GET", "/admin/newsItems");
+  oReq.open("GET", "/api/newsItems");
   oReq.send();
 }
 
