@@ -3,6 +3,22 @@ extends global.pug
 block content
   link(rel="stylesheet", href="/styles/news.css")
 
+  div(id="cover")
+    div(id="logos")
+      div(id="rwcl-spacer")
+        div(id="rwclogo")
+      div(id="sponsors")
+        div(class="slogo", id="sponsor_aim33")
+        div(class="slogo", id="sponsor_brc")
+        div(class="slogo", id="sponsor_dk_wireless")
+        div(class="slogo", id="sponsor_icasa")
+        div(class="slogo", id="sponsor_net_dynamix")
+        div(class="slogo", id="sponsor_samro")
+        div(class="slogo", id="sponsor_sentech")
+        div(class="slogo", id="sponsor_station_playlist")
+    div(id="slogan")
+      h1 The Station with a heart of Gold
+
   div(id="main")
     div(id="news_items")
     script(src="/scripts/news.js" charset="utf-8")

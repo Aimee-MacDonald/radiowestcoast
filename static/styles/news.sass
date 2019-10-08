@@ -1,13 +1,101 @@
-#news_items
+#cover
+  background-color: #f1f3f3ff
+  width: 100%
+  height: 100%
   display: flex
-  flex-flow: wrap row
-  justify-content: center
+  flex-flow: nowrap column
+  justify-content: space-around
+  #logos
+    width: 100%
+    height: 70%
+    display: flex
+    flex-flow: nowrap column
+    #rwcl-spacer
+      width: 100%
+      height: 50%
+      display: flex
+      #rwclogo
+        background-image: url("../images/rwc_logo.png")
+        width: 20rem
+        height: 10rem
+        background-size: cover
+        margin: auto
+    #sponsors
+      width: 100%
+      height: 50%
+      display: flex
+      flex-flow: wrap row
+      justify-content: space-around
+      align-items: center
+      .slogo
+        width: 6rem
+        height: 3rem
+        background-size: cover
+        background-position: center
+  #slogan
+    text-align: center
+
+h1
+  margin: 0
+
+#sponsor_aim33
+  background-image: url("../images/sponsors/aim33.png")
+#sponsor_brc
+  background-image: url("../images/sponsors/brc.jpg")
+#sponsor_dk_wireless
+  background-image: url("../images/sponsors/dk_wireless.jpg")
+#sponsor_icasa
+  background-image: url("../images/sponsors/icasa.jpg")
+  background-size: contain
+#sponsor_net_dynamix
+  background-image: url("../images/sponsors/net_dynamix.jpg")
+  background-size: contain
+#sponsor_samro
+  background-image: url("../images/sponsors/samro.jpg")
+#sponsor_sentech
+  background-image: url("../images/sponsors/sentech.jpg")
+#sponsor_station_playlist
+  background-image: url("../images/sponsors/station_playlist.gif")
+  background-size: contain
+
+@media(min-width: 500px)
+  #cover
+    #logos
+      flex-flow: nowrap row
+      #rwcl-spacer
+        height: 100%
+        #rwclogo
+            width: 30rem
+            height: 15rem
+      #sponsors
+        height: 100%
+        flex-flow: wrap column
+        .slogo
+          width: 10rem
+          height: 5rem
+          margin: 1rem
+    #slogan
+      order: -1
+
+  #main
+    display: flex
+    width: 100%
+    justify-content: center
+    align-items: center
+    #news_items
+      display: flex
+      flex-flow: wrap row
+      justify-content: center
+      max-width: 60rem
 
 #create_button
+  position: fixed
   background-color: lightblue
   font-weight: bold
   font-size: 16pt
   padding: 0.5rem 2rem
+  margin-left: 1rem
+  margin-top: 4rem
   border-radius: 0.5rem
   text-decoration: none
   box-shadow: 0rem 0.5rem 1rem 0rem grey
