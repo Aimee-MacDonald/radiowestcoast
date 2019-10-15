@@ -1,24 +1,47 @@
-extends global.pug
+doctype html
 
-block content
-  link(rel="stylesheet", href="/styles/news.css")
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    link(rel="stylesheet", href="/styles/global.css")
+    link(rel="stylesheet", href="/styles/news.css")
+    link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.8.2/css/all.css", integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay", crossorigin="anonymous")
+    <link href="https://fonts.googleapis.com/css?family=Bad+Script|Montserrat|Roboto&display=swap" rel="stylesheet">
+    title Radio West Coast
 
-  div(id="cover")
-    div(id="logos")
-      div(id="rwcl-spacer")
-        div(id="rwclogo")
-      div(id="sponsors")
-        div(class="slogo", id="sponsor_aim33")
-        div(class="slogo", id="sponsor_brc")
-        div(class="slogo", id="sponsor_dk_wireless")
-        div(class="slogo", id="sponsor_icasa")
-        div(class="slogo", id="sponsor_net_dynamix")
-        div(class="slogo", id="sponsor_samro")
-        div(class="slogo", id="sponsor_sentech")
-        div(class="slogo", id="sponsor_station_playlist")
-    div(id="slogan")
-      h1 The station with a heart of Gold
+  body
+    nav
+      button(id="menu_close", onclick="closeMenu()")
+        i(class="fas fa-times fa-4x")
+      a(href="/news") News
+      a(href=href="http://www.radio-south-africa.co.za/player/radio-west-coast-445818", target="_blank") Listen
+      a(href="/team") The Team
+      a(href="/shows") Shows
+      a(href="/sponsors") Sponsors
 
-  div(id="main")
-    div(id="news_items")
+    button(id="menu_open", onclick="openMenu()")
+      i(class="fas fa-bars fa-3x")
+
+    div(id="cover")
+      div(id="logos")
+        div(id="rwcl-spacer")
+          div(id="rwclogo")
+        div(id="sponsors")
+          div(class="slogo", id="sponsor_aim33")
+          div(class="slogo", id="sponsor_brc")
+          div(class="slogo", id="sponsor_dk_wireless")
+          div(class="slogo", id="sponsor_icasa")
+          div(class="slogo", id="sponsor_net_dynamix")
+          div(class="slogo", id="sponsor_samro")
+          div(class="slogo", id="sponsor_sentech")
+          div(class="slogo", id="sponsor_station_playlist")
+      div(id="slogan")
+        h1 The station with a heart of Gold
+
+    div(id="main")
+      div(id="news_items")
+
     script(src="/scripts/news.js" charset="utf-8")
+    script(src="/scripts/global.js" charset="utf-8")

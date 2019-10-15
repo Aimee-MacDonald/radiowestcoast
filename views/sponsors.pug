@@ -1,13 +1,45 @@
-extends global.pug
+doctype html
 
-block content
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    link(rel="stylesheet", href="/styles/global.css")
+    link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.8.2/css/all.css", integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay", crossorigin="anonymous")
+    <link href="https://fonts.googleapis.com/css?family=Bad+Script|Montserrat|Roboto&display=swap" rel="stylesheet">
+    title Radio West Coast
+
+  body
+    nav
+      button(id="menu_close", onclick="closeMenu()")
+        i(class="fas fa-times fa-4x")
+      a(href="/news") News
+      a(href=href="http://www.radio-south-africa.co.za/player/radio-west-coast-445818", target="_blank") Listen
+      a(href="/team") The Team
+      a(href="/shows") Shows
+      a(href="/sponsors") Sponsors
+
+    button(id="menu_open", onclick="openMenu()")
+      i(class="fas fa-bars fa-3x")
+
+    div(id="sponsors")
+      div(class="sponsor", id="sponsor_aim33")
+      div(class="sponsor", id="sponsor_brc")
+      div(class="sponsor", id="sponsor_dk_wireless")
+      div(class="sponsor", id="sponsor_icasa")
+      div(class="sponsor", id="sponsor_net_dynamix")
+      div(class="sponsor", id="sponsor_samro")
+      div(class="sponsor", id="sponsor_sentech")
+      div(class="sponsor", id="sponsor_station_playlist")
+
+    script(src="/scripts/global.js" charset="utf-8")
+
+
+
+
+
+
+
+
   link(rel="stylesheet", href="/styles/sponsors.css")
-  div(id="sponsors")
-    div(class="sponsor", id="sponsor_aim33")
-    div(class="sponsor", id="sponsor_brc")
-    div(class="sponsor", id="sponsor_dk_wireless")
-    div(class="sponsor", id="sponsor_icasa")
-    div(class="sponsor", id="sponsor_net_dynamix")
-    div(class="sponsor", id="sponsor_samro")
-    div(class="sponsor", id="sponsor_sentech")
-    div(class="sponsor", id="sponsor_station_playlist")
