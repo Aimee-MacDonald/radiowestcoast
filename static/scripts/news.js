@@ -32,7 +32,7 @@ function populateNews(){
     el_news_item.append(el_news_synopsis);
     el_news_item.append(el_news_date);
 
-    el_news_items.append(el_news_item);
+    el_news_items.prepend(el_news_item);
   }
 
   el_news_items.childNodes[0].id = "main_news";
