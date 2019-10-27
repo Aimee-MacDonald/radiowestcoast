@@ -57,11 +57,19 @@ app.get("/", (req, res) => {
 });
 
 app.get("/news", (req, res) => {
-  res.status(200).render("news");
+  if(req.isAuthenticated()){
+    res.redirect("/admin/news");
+  } else {
+    res.status(200).render("news");
+  }
 });
 
 app.get("/team", (req, res) => {
-  res.status(200).render("team");
+  if(req.isAuthenticated()){
+    res.redirect("/admin/team");
+  } else {
+    res.status(200).render("team");
+  }
 });
 
 app.get("/shows", (req, res) => {

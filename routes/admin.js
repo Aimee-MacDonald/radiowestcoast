@@ -73,6 +73,14 @@ router.get("/create", (req, res) => {
   }
 });
 
+router.get("/team", (req, res) => {
+  if(req.isAuthenticated()){
+    res.status(200).render("admin_team");
+  } else {
+    res.redirect("/admin/login");
+  }
+})
+
 router.post("/createArticle", (req, res) => {
   if(req.isAuthenticated()){
     if(req.body.id){
