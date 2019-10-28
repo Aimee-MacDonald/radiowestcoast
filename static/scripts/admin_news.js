@@ -44,7 +44,7 @@ function populateNews(){
     el_news_item.append(el_news_delete);
     el_news_item.append(el_news_edit);
 
-    el_news_items.append(el_news_item);
+    el_news_items.prepend(el_news_item);
   }
 
   el_news_items.childNodes[0].id = "main_news";
@@ -62,4 +62,15 @@ function editNews(index){
 
 function itemDeleted(){
   console.log("Item Deleted");
+}
+
+var el_dialog = document.getElementById("creation_dialog");
+function closeDialog(){
+  el_dialog.style.width = "0%";
+  el_dialog.style.height = "0%";
+}
+
+function openDialog(){
+  el_dialog.style.width = "100%";
+  el_dialog.style.height = "100%";
 }
