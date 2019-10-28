@@ -45,7 +45,7 @@ router.post("/login", (req, res) => {
 
 router.get("/news", (req, res) => {
   if(req.isAuthenticated()){
-    res.status(200).render("admin_news");
+    res.status(200).render("admin_news", {csrfToken: req.csrfToken()});
   } else {
     res.redirect("/admin/login");
   }
@@ -182,7 +182,6 @@ router.post("/uploadImage", (req, res) => {
   var file = req.files.image;
 
   cloudinary.uploader.upload(file.tempFilePath, function(err, result){
-    console.log(result.secure_url);
     res.status(200).send(JSON.stringify({
       result: result.secure_url
     }));
